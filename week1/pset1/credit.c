@@ -13,15 +13,12 @@ int main(void){
     int two_digits;
     int total;
 
+    // Get number and find its length
     cnum = get_long("Number: ");
-    // printf("%ld\n\n", cnum);
-
-    // number = get_digits(cnum, i);
-    // printf("Number: %d\n", number);
-
     clen = find_length(cnum);
     printf("Length cnum: %d\n", clen);
 
+    // Checksum
     total = checksum(cnum, clen);
     printf("Total: %d\n", total);
 
@@ -31,7 +28,6 @@ int main(void){
 
     // Veryfying type and validity
     if (total % 10 == 0){
-        // printf("This is valid, brand...\n");
 
         // Check if VISA
         if (clen == 13 || clen == 16){
@@ -66,25 +62,21 @@ int main(void){
     }
 }
 
-
-
 int get_digits(long num, int n){
     long temp;
     temp = num / (long) pow(10,n-1);
     temp = temp % 10;
-    // % (int) (pow(10, (n+1))) / (int) pow(10, n);
 
     return temp;
 
 }
 
 int checksum(long cnum, int num_len){
-    // Every other digits starts from second-to-last digit
-    // int number;
     int sum1 = 0;
     int sum2 = 0;
     int total;
 
+    // Every other digits starts from second-to-last digit
     for (int i=2; i<=num_len; i+=2){
         int num = get_digits(cnum, i);
         num = num*2;
@@ -103,26 +95,19 @@ int checksum(long cnum, int num_len){
         }
     }
 
-    // printf("\n");
-
-    // printf("Not every other digits\n");
+    // Non every other digits
     for (int i=1; i<=num_len; i+=2){
         int num = get_digits(cnum, i);
         sum2 += num;
-        // printf("%d ", num);
-        // printf("sum: %d", sum2);
-        // printf("\n");
     }
-
-    // printf("Sum1: %d\n", sum1);
-    // printf("Sum2: %d\n", sum2);
-
 
     return sum1 + sum2;
 }
 
 int find_length(long num){
     int i = 0;
+
+    // Iterate and truncate
     while (num > 0){
         num = num / 10;
         i += 1;
@@ -132,6 +117,5 @@ int find_length(long num){
 
 int get_first_two_digits(long num,  int num_len){
     num = num / (long) pow(10,num_len-2);
-
     return num;
 }
