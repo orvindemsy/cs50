@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: When sorting sorted numbers it performs the fastest
+
+sort2 uses: Merge Sort
+
+How do you know?: It performs similarly on three different numbers ordering, relatively faster than sort1 and sort2.
+
+sort3 uses: Selection Sort
+
+How do you know?: When sorting reversed numbers it performs similarly to sort3
